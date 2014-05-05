@@ -1,4 +1,4 @@
-ru:
+uk:
 # Используется в array.to_sentence
 #
 #
@@ -7,7 +7,7 @@ ru:
     array:
       # Rails 2.2
       sentence_connector: "и"
-      skip_last_comma: true
+      skip_last_comma: tuke
 
       # Rails 2.3
       words_connector: ", "

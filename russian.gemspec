@@ -1,16 +1,16 @@
 # -*- encoding: utf-8 -*-
 
 $: << File.expand_path('../lib', __FILE__)
-require 'russian/version'
+require 'ukrainian/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "rs_russian"
-  spec.version       = Russian::VERSION
+  spec.name          = "rs_ukrainian"
+  spec.version       = Ukrainian::VERSION
   spec.authors       = ["glebtv", "Yaroslav Markin"]
   spec.email         = ["glebtv@gmail.com", "yaroslav@markin.net"]
-  spec.description   = %q{Russian language support for Ruby and Rails}
-  spec.summary       = %q{Russian language support for Ruby and Rails}
-  spec.homepage      = "https://github.com/rs-pro/russian"
+  spec.description   = %q{Ukrainian language support for Ruby and Rails}
+  spec.summary       = %q{Ukrainian language support for Ruby and Rails}
+  spec.homepage      = "https://github.com/rs-pro/ukrainian"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

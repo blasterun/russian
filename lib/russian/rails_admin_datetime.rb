@@ -7,7 +7,7 @@ module RailsAdmin
       module Types
         class Datetime < RailsAdmin::Config::Fields::Base
           class << self
-            alias_method :normalize_without_russian, :normalize
+            alias_method :normalize_without_ukrainian, :normalize
             def normalize(date_string, format)
               unless I18n.locale == "en"
                 format.to_s.scan(/%[AaBbp]/) do |match|
@@ -23,7 +23,7 @@ module RailsAdmin
                   end
                 end
               end
-              normalize_without_russian(date_string, format)
+              normalize_without_ukrainian(date_string, format)
             end
           end
 

@@ -1,14 +1,14 @@
 # -*- encoding: utf-8 -*-
 
-module Russian
-  # Russian transliteration
+module Ukrainian
+  # Ukrainian transliteration
   #
   # Транслитерация для букв русского алфавита
   module Transliteration
     extend self
 
-    # Transliteration heavily based on rutils gem by Julian "julik" Tarkhanov and Co.
-    # <http://rutils.rubyforge.org/>
+    # Transliteration heavily based on uktils gem by Julian "julik" Tarkhanov and Co.
+    # <http://uktils.rubyforge.org/>
     # Cleaned up and optimized.
 
     LOWER_SINGLE = {
@@ -46,7 +46,7 @@ module Russian
     MULTI_KEYS = (LOWER_MULTI.merge(UPPER_MULTI)).keys.sort_by {|s| s.length}.reverse.freeze
     SCAN_REGEX = %r{#{MULTI_KEYS.join '|'}|\w|.}.freeze
 
-    # Transliterate a string with russian characters
+    # Transliterate a string with ukrainian characters
     #
     # Возвращает строку, в которой все буквы русского алфавита заменены на похожую по звучанию латиницу
     def transliterate(str)

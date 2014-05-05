@@ -2,9 +2,9 @@
 
 require File.dirname(__FILE__) + '/../../spec_helper'
 
-describe I18n, "Russian Date/Time localization" do
+describe I18n, "Ukrainian Date/Time localization" do
   before(:all) do
-    Russian.init_i18n
+    Ukrainian.init_i18n
     @date = Date.parse("1985-12-01")
     @time = Time.local(1985, 12, 01, 16, 05)
   end
@@ -40,8 +40,8 @@ describe I18n, "Russian Date/Time localization" do
     end
 
     it "should use uppercased day names" do
-      Russian::strftime(@date, "%^a").should == "ВС"
-      Russian::strftime(@date, "%^A").should == "ВОСКРЕСЕНЬЕ"
+      Ukrainian::strftime(@date, "%^a").should == "ВС"
+      Ukrainian::strftime(@date, "%^A").should == "ВОСКРЕСЕНЬЕ"
     end
   end
 
@@ -79,8 +79,8 @@ describe I18n, "Russian Date/Time localization" do
     end
 
     it "should use uppercased month names" do
-      Russian::strftime(@date, "%^b").should == "ДЕК"
-      Russian::strftime(@date, "%^B").should == "ДЕКАБРЬ"
+      Ukrainian::strftime(@date, "%^b").should == "ДЕК"
+      Ukrainian::strftime(@date, "%^B").should == "ДЕКАБРЬ"
     end
 
     it "should use standalone abbreviated month names" do
@@ -91,7 +91,7 @@ describe I18n, "Russian Date/Time localization" do
   end
 
   it "should define default date components order: day, month, year" do
-    I18n.backend.translate(Russian.locale, :"date.order").should == [:day, :month, :year]
+    I18n.backend.translate(Ukrainian.locale, :"date.order").should == [:day, :month, :year]
   end
 
   describe "with time formats" do
@@ -108,13 +108,13 @@ describe I18n, "Russian Date/Time localization" do
     end
 
     it "should define am and pm" do
-      I18n.backend.translate(Russian.locale, :"time.am").should_not be_nil
-      I18n.backend.translate(Russian.locale, :"time.pm").should_not be_nil
+      I18n.backend.translate(Ukrainian.locale, :"time.am").should_not be_nil
+      I18n.backend.translate(Ukrainian.locale, :"time.pm").should_not be_nil
     end
   end
 
   protected
     def l(object, options = {})
-      I18n.l(object, options.merge( { :locale => Russian.locale }))
+      I18n.l(object, options.merge( { :locale => Ukrainian.locale }))
     end
 end

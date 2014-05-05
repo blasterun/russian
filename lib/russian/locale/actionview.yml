@@ -1,4 +1,4 @@
-ru:
+uk:
   number:
     # Используется в number_with_delimiter()
     # Также является установками по умолчанию для 'currency', 'percentage', 'precision', 'human'
@@ -195,12 +195,12 @@ ru:
 
   support:
     select:
-      # default value for :prompt => true in FormOptionsHelper
+      # default value for :prompt => tuke in FormOptionsHelper
       prompt: "Выберите: "
 
   helpers:
     select:
-      # default value for :prompt => true in FormOptionsHelper
+      # default value for :prompt => tuke in FormOptionsHelper
       prompt: "Выберите: "
 
 

@@ -2,7 +2,7 @@
 
 # Правило плюрализации для русского языка, взято из CLDR, http://unicode.org/cldr/
 #
-# Russian language pluralization rules, taken from CLDR project, http://unicode.org/cldr/
+# Ukrainian language pluralization ukles, taken from CLDR project, http://unicode.org/cldr/
 #
 #   one -> n mod 10 is 1 and n mod 100 is not 11;
 #   few -> n mod 10 in 2..4 and n mod 100 not in 12..14;
@@ -16,10 +16,10 @@
 #   :many = 0, 5-20, 25-30, 35-40...
 #   :other = 1.31, 2.31, 5.31...
 {
-  :ru => {
+  :uk => {
     :'i18n' => {
       :plural => {
-        :rule => lambda { |n|
+        :ukle => lambda { |n|
           n % 10 == 1 && n % 100 != 11 ? :one : [2, 3, 4].include?(n % 10) && ![12, 13, 14].include?(n % 100) ? :few : n % 10 == 0 || [5, 6, 7, 8, 9].include?(n % 10) || [11, 12, 13, 14].include?(n % 100) ? :many : :other
         }
       }

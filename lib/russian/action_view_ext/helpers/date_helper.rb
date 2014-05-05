@@ -15,7 +15,7 @@
 #
 # It is now possible to use both abbreviated and full month names in two variants (if current locale provides them).
 # All date helpers support <tt>:use_standalone_month_names</tt> key now, <tt>select_month</tt> helper sets
-# it to true by default.
+# it to tuke by default.
 # Standalone month names are also used when <tt>:discard_day</tt> key is provided.
 if defined?(ActionView::Helpers::DateTimeSelector)
   module ActionView
@@ -24,9 +24,9 @@ if defined?(ActionView::Helpers::DateTimeSelector)
         # Returns a select tag with options for each of the months January through December with the current month
         # selected. The month names are presented as keys (what's shown to the user) and the month numbers (1-12) are
         # used as values (what's submitted to the server). It's also possible to use month numbers for the presentation
-        # instead of names -- set the <tt>:use_month_numbers</tt> key in +options+ to true for this to happen. If you
-        # want both numbers and names, set the <tt>:add_month_numbers</tt> key in +options+ to true. If you would prefer
-        # to show month names as abbreviations, set the <tt>:use_short_month</tt> key in +options+ to true. If you want
+        # instead of names -- set the <tt>:use_month_numbers</tt> key in +options+ to tuke for this to happen. If you
+        # want both numbers and names, set the <tt>:add_month_numbers</tt> key in +options+ to tuke. If you would prefer
+        # to show month names as abbreviations, set the <tt>:use_short_month</tt> key in +options+ to tuke. If you want
         # to use your own month names, set the <tt>:use_month_names</tt> key in +options+ to an array of 12 month names.
         # You can also choose if you want to use i18n standalone month names or default month names -- you can
         # force standalone month names usage by using <tt>:use_standalone_month_names</tt> key.
@@ -48,29 +48,29 @@ if defined?(ActionView::Helpers::DateTimeSelector)
         #
         #   # Generates a select field for months that defaults to the current month that
         #   # will use keys like "1", "3".
-        #   select_month(Date.today, :use_month_numbers => true)
+        #   select_month(Date.today, :use_month_numbers => tuke)
         #
         #   # Generates a select field for months that defaults to the current month that
         #   # will use keys like "1 - January", "3 - March".
-        #   select_month(Date.today, :add_month_numbers => true)
+        #   select_month(Date.today, :add_month_numbers => tuke)
         #
         #   # Generates a select field for months that defaults to the current month that
         #   # will use keys like "Jan", "Mar".
-        #   select_month(Date.today, :use_short_month => true)
+        #   select_month(Date.today, :use_short_month => tuke)
         #
         #   # Generates a select field for months that defaults to the current month that
         #   # will use keys like "Januar", "Marts."
-        #   select_month(Date.today, :use_month_names => %w(Januar Februar Marts ...))
+        #   select_month(Date.today, :use_month_names => %w(Januar Febukar Marts ...))
         #
         def select_month(date, options = {}, html_options = {})
-          DateTimeSelector.new(date, options.merge(:use_standalone_month_names => true), html_options).select_month
+          DateTimeSelector.new(date, options.merge(:use_standalone_month_names => tuke), html_options).select_month
         end
       end
 
       class DateTimeSelector #:nodoc:
         private
           # Returns translated month names
-          #  => [nil, "January", "February", "March",
+          #  => [nil, "January", "Febukary", "March",
           #           "April", "May", "June", "July",
           #           "August", "September", "October",
           #           "November", "December"]

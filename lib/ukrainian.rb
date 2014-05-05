@@ -4,8 +4,8 @@ $KCODE = 'u' if RUBY_VERSION < "1.9"
 
 require 'i18n'
 
-$:.push File.join(File.dirname(__FILE__), 'russian')
-require 'russian_rails'
+$:.push File.join(File.dirname(__FILE__), 'ukrainian')
+require 'ukrainian_rails'
 
 if RUBY_ENGINE == "jruby"
   require 'unicode_utils/upcase'
@@ -13,26 +13,26 @@ else
   require 'unicode'
 end
 
-module Russian
+module Ukrainian
   extend self
 
   autoload :Transliteration, 'transliteration'
 
-  # Russian locale
-  LOCALE = :'ru'
+  # Ukrainian locale
+  LOCALE = :'uk'
 
-  # Russian locale
+  # Ukrainian locale
   def locale
     LOCALE
   end
 
-  # Regexp machers for context-based russian month names and day names translation
+  # Regexp machers for context-based ukrainian month names and day names translation
   LOCALIZE_ABBR_MONTH_NAMES_MATCH = /(%[-_0^#:]*(\d+)*[EO]?d|%[-_0^#:]*(\d+)*[EO]?e)(.*)(%b)/
   LOCALIZE_MONTH_NAMES_MATCH = /(%[-_0^#:]*(\d+)*[EO]?d|%[-_0^#:]*(\d+)*[EO]?e)(.*)(%B)/
   LOCALIZE_STANDALONE_ABBR_DAY_NAMES_MATCH = /^%a/
   LOCALIZE_STANDALONE_DAY_NAMES_MATCH = /^%A/
 
-  # Init Russian i18n: load all translations shipped with library.
+  # Init Ukrainian i18n: load all translations shipped with library.
   def init_i18n
     I18n::Backend::Simple.send(:include, I18n::Backend::Pluralization)
     I18n::Backend::Simple.send(:include, I18n::Backend::Transliterator)
@@ -54,7 +54,7 @@ module Russian
   end
   alias :l :localize
 
-  # strftime() proxy with Russian localization
+  # strftime() proxy with Ukrainian localization
   def strftime(object, format = :default)
     localize(object, { :format => check_strftime_format(object, format) })
   end
@@ -62,8 +62,8 @@ module Russian
   # Simple pluralization proxy
   #
   # Usage:
-  #   Russian.pluralize(1, "вещь", "вещи", "вещей")
-  #   Russian.pluralize(3.14, "вещь", "вещи", "вещей", "вещи")
+  #   Ukrainian.pluralize(1, "вещь", "вещи", "вещей")
+  #   Ukrainian.pluralize(3.14, "вещь", "вещи", "вещей", "вещи")
   #   Russina.pluralize(5, "Произошла %n ошибка", "Произошло %n ошибки", "Произошло %n ошибок")
   def pluralize(n, *variants)
     raise ArgumentError, "Must have a Numeric as a first parameter" unless n.is_a?(Numeric)
@@ -74,13 +74,13 @@ module Russian
   end
   alias :p :pluralize
 
-  # Transliteration for russian language
+  # Transliteration for ukrainian language
   #
   # Usage:
-  #  Russian.translit("рубин")
-  #  Russian.transliterate("рубин")
+  #  Ukrainian.translit("рубин")
+  #  Ukrainian.transliterate("рубин")
   def transliterate(str)
-    Russian::Transliteration.transliterate(str)
+    Ukrainian::Transliteration.transliterate(str)
   end
   alias :translit :transliterate
 
@@ -102,7 +102,7 @@ module Russian
 
     # Returns all locale files shipped with library
     def locale_files
-      Dir[File.join(File.dirname(__FILE__), "russian", "locale", "**/*")]
+      Dir[File.join(File.dirname(__FILE__), "ukrainian", "locale", "**/*")]
     end
 
     # Converts an array of pluralization variants to a Hash that can be used
@@ -118,7 +118,7 @@ module Russian
     end
 end
 
-Russian.init_i18n
+Ukrainian.init_i18n
 
 if Object.const_defined?('RailsAdmin')
   require 'rails_admin_datetime'

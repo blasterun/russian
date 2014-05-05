@@ -2,21 +2,21 @@
 
 require File.dirname(__FILE__) + '/spec_helper'
 
-describe Russian do
+describe Ukrainian do
   describe "transliteration" do
     def t(str)
-      Russian::transliterate(str)
+      Ukrainian::transliterate(str)
     end
 
     %w(transliterate translit).each do |method|
       it "'#{method}' method should perform transliteration" do
         str = mock(:str)
-        Russian::Transliteration.should_receive(:transliterate).with(str)
-        Russian.send(method, str)
+        Ukrainian::Transliteration.should_receive(:transliterate).with(str)
+        Ukrainian.send(method, str)
       end
     end
 
-    # These tests are from rutils, <http://rutils.rubyforge.org>.
+    # These tests are from uktils, <http://uktils.rubyforge.org>.
 
     it "should transliterate properly" do
       t("Это просто некий текст").should == "Eto prosto nekiy tekst"
@@ -28,9 +28,9 @@ describe Russian do
       t("ц").should == "ts"
     end
 
-    it "should properly transliterate mixed russian-english strings" do
+    it "should properly transliterate mixed ukrainian-english strings" do
       t("Это кусок строки русских букв v peremeshku s latinizey i амперсандом (pozor!) & something").should ==
-        "Eto kusok stroki russkih bukv v peremeshku s latinizey i ampersandom (pozor!) & something"
+        "Eto kusok stroki uksskih bukv v peremeshku s latinizey i ampersandom (pozor!) & something"
     end
 
     it "should properly transliterate mixed case chars in a string" do

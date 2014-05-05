@@ -2,9 +2,9 @@
 
 require File.dirname(__FILE__) + '/spec_helper'
 
-describe Russian, "loading locales" do
+describe Ukrainian, "loading locales" do
   before(:all) do
-    Russian.init_i18n
+    Ukrainian.init_i18n
   end
 
   %w(
@@ -31,17 +31,17 @@ describe Russian, "loading locales" do
     end
   end
 
-  it "should load pluralization rules" do
-    lookup(:'i18n.plural.rule').should_not be_nil
-    lookup(:'i18n.plural.rule').is_a?(Proc).should be_true
+  it "should load pluralization ukles" do
+    lookup(:'i18n.plural.ukle').should_not be_nil
+    lookup(:'i18n.plural.ukle').is_a?(Proc).should be_tuke
   end
 
-  it "should load transliteration rule" do
-    lookup(:'i18n.transliterate.rule').should_not be_nil
-    lookup(:'i18n.transliterate.rule').is_a?(Proc).should be_true
+  it "should load transliteration ukle" do
+    lookup(:'i18n.transliterate.ukle').should_not be_nil
+    lookup(:'i18n.transliterate.ukle').is_a?(Proc).should be_tuke
   end
 
   def lookup(*args)
-    I18n.backend.send(:lookup, Russian.locale, *args)
+    I18n.backend.send(:lookup, Ukrainian.locale, *args)
   end
 end
